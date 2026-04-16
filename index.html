@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Wedding Invitation</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
@@ -88,12 +88,13 @@
         .btn-google { background: var(--primary-blue); color: white; border: none; }
         .btn-yandex { background: #f33e3e; color: white; border: none; }
 
-        /* KARTA UCHUN STIL */
+        /* KARTA DIZAYNI (TAKMLILLASHTIRILDI) */
         .gift-card {
-            background: linear-gradient(135deg, #fff, #f3e5ab);
+            background: white;
             border: 2px solid var(--gold);
             padding: 20px; margin: 25px 0; border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            position: relative;
         }
         .card-num { 
             font-size: 1.3rem; font-weight: bold; color: var(--primary-blue); 
@@ -101,10 +102,11 @@
             font-family: 'Courier New', monospace;
         }
         .copy-btn { 
-            background: var(--primary-blue); color: white; border: none; 
+            background: var(--gold); color: white; border: none; 
             padding: 8px 20px; border-radius: 20px; cursor: pointer; 
-            font-weight: 600; font-size: 0.75rem;
+            font-weight: 600; font-size: 0.75rem; transition: 0.3s;
         }
+        .copy-btn:active { transform: scale(0.95); }
 
         /* TAYMER */
         .timer-grid { display: flex; justify-content: center; gap: 15px; margin: 35px 0; }
@@ -113,7 +115,8 @@
 
         /* RSVP FORM */
         .rsvp-section { margin-top: 45px; padding: 30px 20px; background: #f9fbff; border-radius: 20px; border: 1px dashed var(--gold); }
-        .input-field { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 12px; box-sizing: border-box; outline: none; }
+        .input-field { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 12px; box-sizing: border-box; outline: none; font-family: 'Montserrat', sans-serif; }
+        .input-field:focus { border-color: var(--primary-blue); }
         .options { display: flex; gap: 10px; margin-bottom: 20px; }
         .opt-btn { flex: 1; padding: 15px; border: 1px solid #ddd; border-radius: 12px; cursor: pointer; background: white; transition: 0.3s; font-size: 13px; font-weight: bold; }
         .opt-btn.active { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
@@ -143,7 +146,7 @@
                 <img src="couple_icon.png" class="couple-icon" data-aos="fade-down" data-aos-delay="300">
 
                 <p id="sub-text" style="letter-spacing: 3px; font-size: 0.8rem; color: #777;">SIZNI TAKLIF ETAMIZ</p>
-                <h1 class="names" data-aos="fade-up" data-aos-delay="500">Layli & Majnun</h1>
+                <h1 class="names" data-aos="fade-up" data-aos-delay="500">Komil & ???</h1>
                 
                 <div class="date-box" data-aos="flip-up" data-aos-delay="700">
                     <span style="font-size: 2.2rem;">27</span><br>
@@ -159,7 +162,7 @@
                 <div class="map-section">
                     <img src="restaurant_icon.png" class="restaurant-icon" data-aos="zoom-in">
                     <h3 id="restoran-name" style="color: var(--primary-blue); margin-bottom: 20px;">"IDEAL SS" RESTORANI</h3>
-                    <a href="http://maps.google.com/maps?q=37.525656,67.391694" target="_blank" class="btn btn-google">GOOGLE MAPS</a>
+                    <a href="https://maps.app.goo.gl/jAK8fifZPFcsvokr6" target="_blank" class="btn btn-google">GOOGLE MAPS</a>
                     <a href="https://yandex.uz/maps/org/8650108130/" target="_blank" class="btn btn-yandex">YANDEX XARITA</a>
                 </div>
 
@@ -182,6 +185,8 @@
                     <h3 id="rsvp-t" style="font-family: 'Dancing Script'; font-size: 1.6rem; color: var(--primary-blue);">Tashrifni tasdiqlang</h3>
                     <form id="wedding-form">
                         <input type="text" name="ism" id="guest-name" placeholder="Ismingiz" required class="input-field">
+                        <input type="number" name="toyona" id="gift-amount" placeholder="To'yona miqdori (ixtiyoriy)" class="input-field">
+                        
                         <div class="options">
                             <div class="opt-btn" id="btn-yes" onclick="setStatus('Boraman', this)">Boraman</div>
                             <div class="opt-btn" id="btn-no" onclick="setStatus('Borolmayman', this)">Borolmayman</div>
@@ -209,14 +214,14 @@
                 invitation: "Hayotimizning eng go'zal damlarini siz azizlar bilan birga baham ko'rishdan mamnunmiz.",
                 restoran: '"IDEAL SS" RESTORANI', gift: "To'yona uchun (Karta raqami):", copy: "Nusxa olish", 
                 d: "Kun", h: "Soat", m: "Min", rsvp: "Tashrifni tasdiqlang", 
-                ph: "Ismingiz", yes: "Boraman", no: "Borolmayman", send: "YUBORISH", footer: "Sizni kutib qolamiz!"
+                ph: "Ismingiz", gift_ph: "To'yona miqdori (ixtiyoriy)", yes: "Boraman", no: "Borolmayman", send: "YUBORISH", footer: "Sizni kutib qolamiz!"
             },
             cyrillic: {
                 tap: "ОЧИШ УЧУН БОСИНГ", sub: "СИЗНИ ТАКЛИФ ЭТАМИЗ", month: "ДЕКАБРЬ | 2026", time: "СОАТ 18:00 ДА",
                 invitation: "Ҳаётимизнинг энг гўзал дамларини сиз азизлар билан birga баҳам кўришdan мамнунмиз.",
                 restoran: '"IDEAL SS" РЕСТОРАНИ', gift: "Тўёна учун (Карта рақами):", copy: "Нусха олиш", 
                 d: "Кун", h: "Соат", m: "Мин", rsvp: "Ташрифни тасдиқланг",
-                ph: "Исмингиз", yes: "Бораман", no: "Боролмайman", send: "ЮБОРИШ", footer: "Сизни кутиб қоламиз!"
+                ph: "Исмингиз", gift_ph: "Тўёна миқдори (ихтиёрий)", yes: "Бораман", no: "Боролмайman", send: "ЮБОРИШ", footer: "Сизни кутиб қоламиз!"
             }
         };
 
@@ -236,6 +241,7 @@
             document.getElementById('l-d').innerText = t.d; document.getElementById('l-h').innerText = t.h; document.getElementById('l-m').innerText = t.m;
             document.getElementById('rsvp-t').innerText = t.rsvp;
             document.getElementById('guest-name').placeholder = t.ph;
+            document.getElementById('gift-amount').placeholder = t.gift_ph;
             document.getElementById('btn-yes').innerText = t.yes;
             document.getElementById('btn-no').innerText = t.no;
             document.getElementById('send-btn').innerText = t.send;
@@ -248,7 +254,6 @@
             el.classList.add('active');
         }
 
-        // KARTA NUSXALASH
         function copyCard() {
             navigator.clipboard.writeText("9860000000000000");
             const btn = document.getElementById('copy-btn');
@@ -256,7 +261,6 @@
             setTimeout(() => { btn.innerText = "Nusxa olish"; }, 2000);
         }
 
-        // GOOGLE SHEETS BILAN BOG'LASH (TO'G'RILANDI)
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwHR-kKB8i5kZ91WvlQlITHn8DQBnp0eEiEKkbsdYrG8b4lXLBZmmAbGdoglSNRFesSzg/exec';
         const form = document.getElementById('wedding-form');
         form.addEventListener('submit', e => {
@@ -271,7 +275,6 @@
                 }).catch(() => { alert('Xato!'); document.getElementById('send-btn').disabled = false; });
         });
 
-        // MUSIQA TO'XTAB QOLMASLIGI UCHUN
         function openMe() {
             document.getElementById('envelope').style.transform = 'translateY(-100vh)';
             document.getElementById('content').style.display = 'block';
@@ -280,7 +283,6 @@
             const audio = document.getElementById('muzika');
             audio.play().catch(e => console.log("Audio play blocked"));
             
-            // Sahifaga qaytganda musiqa davom etishi uchun
             window.onfocus = function() {
                 if (audio.paused && document.getElementById('content').style.display === 'block') {
                     audio.play();

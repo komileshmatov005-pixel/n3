@@ -146,7 +146,7 @@
                 <img src="couple_icon.png" class="couple-icon" data-aos="fade-down" data-aos-delay="300">
 
                 <p id="sub-text" style="letter-spacing: 3px; font-size: 0.8rem; color: #777;">SIZNI TAKLIF ETAMIZ</p>
-                <h1 class="names" data-aos="fade-up" data-aos-delay="500">Layli & Majnun</h1>
+                <h1 class="names" data-aos="fade-up" data-aos-delay="500"><span id="couple-names">Layli & Majnun</span></h1>
                 
                 <div class="date-box" data-aos="flip-up" data-aos-delay="700">
                     <span style="font-size: 2.2rem;">27</span><br>
@@ -210,18 +210,18 @@
     <script>
         const translations = {
             uz: {
-                tap: "OCHISH UCHUN BOSING", sub: "SIZNI TAKLIF ETAMIZ", month: "DEKABR | 2026", time: "SOAT 18:00 DA",
+                tap: "OCHISH UCHUN BOSING", sub: "SIZNI TAKLIF ETAMIZ", names: "Layli & Majnun", month: "DEKABR | 2026", time: "SOAT 18:00 DA",
                 invitation: "Hayotimizning eng go'zal damlarini siz azizlar bilan birga baham ko'rishdan mamnunmiz.",
                 restoran: '"IDEAL SS" RESTORANI', gift: "To'yona uchun (Karta raqami):", copy: "Nusxa olish", 
                 d: "Kun", h: "Soat", m: "Min", rsvp: "Tashrifni tasdiqlang", 
                 ph: "Ismingiz", gift_ph: "To'yona miqdori (ixtiyoriy)", yes: "Boraman", no: "Borolmayman", send: "YUBORISH", footer: "Sizni kutib qolamiz!"
             },
             cyrillic: {
-                tap: "ОЧИШ УЧУН БОСИНГ", sub: "СИЗНИ ТАКЛИФ ЭТАМИЗ", month: "ДЕКАБРЬ | 2026", time: "СОАТ 18:00 ДА",
+                tap: "ОЧИШ УЧУН БОСИНГ", sub: "СИЗНИ ТАКЛИФ ЭТАМИЗ", names: "Лайли & Мажнун", month: "ДЕКАБРЬ | 2026", time: "СОАТ 18:00 ДА",
                 invitation: "Ҳаётимизнинг энг гўзал дамларини сиз азизлар билан birga баҳам кўришdan мамнунмиз.",
                 restoran: '"IDEAL SS" РЕСТОРАНИ', gift: "Тўёна учун (Карта рақами):", copy: "Нусха олиш", 
                 d: "Кун", h: "Соат", m: "Мин", rsvp: "Ташрифни тасдиқланг",
-                ph: "Исмингиз", gift_ph: "Тўёна миқдори (ихтиёрий)", yes: "Бораман", no: "Боролмайман", send: "ЮБОРИШ", footer: "Сизни кутиб қоламиз!"
+                ph: "Исмингиз", gift_ph: "Тўёна миқдори (ихтиёрий)", yes: "Бораман", no: "Боролмайman", send: "ЮБОРИШ", footer: "Сизни кутиб қоламиз!"
             }
         };
 
@@ -232,6 +232,7 @@
             
             document.getElementById('tap-text').innerText = t.tap;
             document.getElementById('sub-text').innerText = t.sub;
+            document.getElementById('couple-names').innerText = t.names;
             document.getElementById('month-text').innerText = t.month;
             document.querySelector('.time-text').innerText = t.time;
             document.getElementById('invitation-text').innerText = t.invitation;
